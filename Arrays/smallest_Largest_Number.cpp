@@ -3,18 +3,14 @@ using namespace std;
 int printSmallestNumber(int arr[], int sizeOfArray){
     int smallestNum = INT_MAX;
     for(int i=0; i<sizeOfArray; i++){
-        if(arr[i]<smallestNum){
-            smallestNum = arr[i];
-        }
+        smallestNum = min(arr[i], smallestNum);
     }
     return smallestNum;
 }
 int printLargestNumber(int arr[], int sizeOfArray){
     int LargestNum = INT_MIN;
     for(int i=0; i<sizeOfArray; i++){
-        if(arr[i]>LargestNum){
-            LargestNum = arr[i];
-        }
+        LargestNum = max(arr[i], LargestNum);
     }
     return LargestNum;
 }
