@@ -1,17 +1,25 @@
 #include <iostream>
 using namespace std;
-int printSmallestNumber(int arr[], int sizeOfArray){
-    int smallestNum = INT_MAX;
+int returnSmallestNumber(int arr[], int sizeOfArray){
+    int smallestNum = INT_MAX, indexOfSmallestNum;
     for(int i=0; i<sizeOfArray; i++){
         smallestNum = min(arr[i], smallestNum);
+        if(arr[i]==smallestNum){
+            indexOfSmallestNum = i;
+        }
     }
+    cout<<"Index of smallest element in array: "<<indexOfSmallestNum<<endl;
     return smallestNum;
 }
-int printLargestNumber(int arr[], int sizeOfArray){
-    int LargestNum = INT_MIN;
+int returnLargestNumber(int arr[], int sizeOfArray){
+    int LargestNum = INT_MIN, indexOfLargestNum;
     for(int i=0; i<sizeOfArray; i++){
         LargestNum = max(arr[i], LargestNum);
+        if(arr[i]==LargestNum){
+            indexOfLargestNum = i;
+        }
     }
+    cout<<"Index of largest element in array: "<<indexOfLargestNum<<endl;
     return LargestNum;
 }
 int main(){
@@ -23,6 +31,8 @@ int main(){
     for(int i=0; i<sizeOfArray; i++){
         cin>>arr[i];
     }
-    cout<<"Smallest Array element is: "<<printSmallestNumber(arr, sizeOfArray)<<endl;
-    cout<<"Largest Array element is: "<<printLargestNumber(arr, sizeOfArray)<<endl;
+    int smallestElement = returnSmallestNumber(arr, sizeOfArray);
+    cout<<"Smallest Array element is: "<<smallestElement<<endl;
+    int largestElement = returnLargestNumber(arr, sizeOfArray);
+    cout<<"Largest Array element is: "<<largestElement<<endl;
 }
